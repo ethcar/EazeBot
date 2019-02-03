@@ -479,9 +479,9 @@ def getRemoteVersion():
         pypiVersion = re.search('(?<=p class\="release__version">\n)((.*\n){1})',requests.get('https://pypi.org/project/eazebot/').text,re.M).group(0).strip()
     except:
         pypiVersion = ''
-    remoteTxt = base64.b64decode(requests.get('https://api.github.com/repos/MarcelBeining/eazebot/contents/eazebot/__init__.py').json()['content'])
+    remoteTxt = base64.b64decode(requests.get('https://api.github.com/repos/ethcar/eazebot/contents/eazebot/__init__.py').json()['content'])
     remoteVersion = re.search('(?<=__version__ = \\\\\')[0-9\.]+',str(remoteTxt)).group(0)
-    remoteVersionCommit = [val['commit']['url'] for val in requests.get('https://api.github.com/repos/MarcelBeining/EazeBot/tags').json() if val['name']=='EazeBot_%s'%remoteVersion ][0]
+    remoteVersionCommit = [val['commit']['url'] for val in requests.get('https://api.github.com/repos/ethcar/EazeBot/tags').json() if val['name']=='EazeBot_%s'%remoteVersion ][0]
     return (remoteVersion,requests.get(remoteVersionCommit).json()['commit']['message'],pypiVersion==remoteVersion)
         
 def botInfo(bot,update,user_data):
