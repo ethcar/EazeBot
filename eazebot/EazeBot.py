@@ -486,7 +486,7 @@ def getRemoteVersion():
         
 def botInfo(bot,update,user_data):
     deleteMessages(user_data,'botInfo')
-    string = '<b>******** EazeBot (v%s) ********</b>\n<i>Free python/telegram bot for easy execution and surveillance of crypto trading plans on multiple exchanges</i>\n'%thisVersion
+    string = '<b>******** EazeBot/EthCar (v%s) ********</b>\n<i>python/telegram bot for easy execution and surveillance of crypto trading plans on multiple exchanges</i>\n'%thisVersion
     remoteVersion, versionMessage, onPyPi = getRemoteVersion()
     if remoteVersion != thisVersion and all([int(a) >= int(b) for a,b in zip(remoteVersion.split('.'),thisVersion.split('.'))]):
         string += '\n<b>There is a new version of EazeBot available on git (v%s) %s with these changes:\n%s\n</b>\n'%(remoteVersion,'and PyPi' if onPyPi else '(not yet on PyPi)',versionMessage)
@@ -670,9 +670,9 @@ def InlineButtonCallback(bot, update,user_data,query=None,response=None):
                     else:
                         if response is not None:
                             if args[0] == 'BTC':
-                                address = '3AP2u8wMwdSFJWCXNhUbfbV1xirqshfqg6'
+                                address = '1CAWZozJh3f4TJmf2ThGmUfbAY957vZxk5'
                             elif args[0] == 'ETH':
-                                address = '0xE0451300D96090c1F274708Bc00d791017D7a5F3'
+                                address = '0x4a5a776007DAEf18C91829343681a1aF552614e7'
                             elif args[0] == 'NEO':
                                 address = 'AaGRMPuwtGrudXR5s7F5n11cxK595hCWUg' 
                             elif args[0] == 'XLM':
